@@ -20,7 +20,7 @@ def parse_gcode(filename):
 
 
     # maximum number of lines to be read from the G-code file
-    MAXNUMBEROFLINES = 1000
+    MAXNUMBEROFLINES = 100000
 
     commands = []
     j = 0
