@@ -8,7 +8,7 @@ class Laser:
     def __init__(self, n):
         self.angles = Laser.createLaserArray(n)
 
-    def update_angles(self, delta):
+    def updateAngles(self, delta):
         for i in range(len(self.angles)):
             if self.angles[i] + delta < 0:
                 self.angles[i] += 360 + delta
