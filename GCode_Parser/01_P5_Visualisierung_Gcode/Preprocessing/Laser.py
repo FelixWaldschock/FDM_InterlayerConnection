@@ -10,13 +10,23 @@ class Laser:
 
     def update_angles(self, delta):
         for i in range(len(self.angles)):
-            self.angles[i] -= delta 
+            if self.angles[i] + delta < 0:
+                self.angles[i] += 360 + delta
+            else:
+                self.angles[i] += delta
+
         
         # update absolute laser movement
         self.absLaserMovement += abs(delta)
 
         return True
     
+    def getAngles(self):
+        return self.angles
+
+    def getNormAngles(self):
+        return np.mod(self.angles, 360)
+
     @staticmethod
     def createLaserArray(n):
         div = 360/n
