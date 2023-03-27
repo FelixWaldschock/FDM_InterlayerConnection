@@ -1032,13 +1032,13 @@ M index:2=0 ;deactivate laser
 A-56.93757243086579; rotate laser by -79.00088174782628 degrees
 M index:3=100 ;activate laser
 G1 X109.141 Y98.79 E148.98017
-
 M index:3=0 ;deactivate laser
-A-8.575655721935876; rotate laser by -11.898722314186028 degrees
+
+A-56.94753590539227;; rotate laser by -11.898722314186028 degrees
 M index:0=100 ;activate laser
 G1 X111.573 Y99.02 E149.06142
-
 M index:0=0 ;deactivate laser
+
 A-56.94753590539227; rotate laser by -79.01470606873178 degrees
 M index:1=100 ;activate laser
 G1 X114.011 Y99.212 E149.14276
