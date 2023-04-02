@@ -4,6 +4,7 @@ class Laser:
 
     # variable of absolute laser movement
     absLaserMovement = 0
+    lastActivatedLaser = None
 
     def __init__(self, n):
         self.angles = Laser.createLaserArray(n)
@@ -26,6 +27,15 @@ class Laser:
 
     def getNormAngles(self):
         return np.mod(self.angles, 360)
+
+    def upDateLastActivatedLaser(self, laser):
+        self.lastActivatedLaser = laser
+    
+    def getLastActivatedLaser(self):
+        return self.lastActivatedLaser
+
+    def getAbsLaserMovement(self):
+        return self.absLaserMovement
 
     @staticmethod
     def createLaserArray(n):
