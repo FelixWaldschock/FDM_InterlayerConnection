@@ -5,6 +5,7 @@ class gCode:
     numberOfG1 = 0
     totalLengthOfG1 = 0
     currentPos = None              # [X, Y, Z]
+    lastF = 1800
 
     def __init__(self, name):
         self.name = name
@@ -39,3 +40,9 @@ class gCode:
     
     def getCurrentPos(self):
         return self.currentPos
+
+    def updateLastF(self, f):
+        self.lastF = f
+    
+    def getLastF(self):
+        return self.lastF
