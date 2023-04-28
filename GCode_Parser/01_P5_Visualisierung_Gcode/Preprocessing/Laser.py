@@ -5,6 +5,10 @@ class Laser:
     # variable of absolute laser movement
     absLaserMovement = 0
     lastActivatedLaser = None
+    deltaLaser = 360/4
+
+
+
 
     def __init__(self, n):
         self.angles = Laser.createLaserArray(n)
@@ -16,7 +20,7 @@ class Laser:
             else:
                 self.angles[i] += delta
 
-        
+      
         # update absolute laser movement
         self.absLaserMovement += abs(delta)
 
@@ -40,6 +44,7 @@ class Laser:
     @staticmethod
     def createLaserArray(n):
         div = 360/n
+        deltaLaser = div
         tmp = []
         for i in range(n):
             tmp.append(div*i)

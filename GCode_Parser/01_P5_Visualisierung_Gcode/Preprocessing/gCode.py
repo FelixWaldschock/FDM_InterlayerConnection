@@ -4,6 +4,7 @@ class gCode:
     lastAngle = 0
     numberOfG1 = 0
     totalLengthOfG1 = 0
+    currentPos = None              # [X, Y, Z]
 
     def __init__(self, name):
         self.name = name
@@ -32,3 +33,9 @@ class gCode:
     
     def getNumberOfG1(self):
         return self.numberOfG1
+
+    def updateCurrentPs(self, pos):
+        self.currentPos  = pos
+    
+    def getCurrentPos(self):
+        return self.currentPos
