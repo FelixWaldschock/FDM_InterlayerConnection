@@ -35,7 +35,7 @@ class gCode:
     def getNumberOfG1(self):
         return self.numberOfG1
 
-    def updateCurrentPs(self, pos):
+    def updateCurrentPos(self, pos):
         self.currentPos  = pos
     
     def getCurrentPos(self):

@@ -32,7 +32,7 @@ class Laser:
     def getNormAngles(self):
         return np.mod(self.angles, 360)
 
-    def upDateLastActivatedLaser(self, laser):
+    def updateLastActivatedLaser(self, laser):
         self.lastActivatedLaser = laser
     
     def getLastActivatedLaser(self):
@@ -40,6 +40,9 @@ class Laser:
 
     def getAbsLaserMovement(self):
         return self.absLaserMovement
+
+    def updateAbsLaserMovement(self, value):
+        self.absLaserMovement = value
 
     @staticmethod
     def createLaserArray(n):
