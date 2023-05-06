@@ -9,6 +9,9 @@ class Laser:
     numberOfLaser = 0
     deltaLaser = 0
     OnOFF_State = [False, False, False, False]
+    LaserOnTime = [0, 0, 0, 0]
+    totalLaserOnTime = [0, 0, 0, 0]
+    lastAngle = 0
 
 
 
@@ -60,6 +63,24 @@ class Laser:
 
     def getAbsLaserPos(self):
         return self.absLaserPos
+
+    def updateLaserOnTime(self, index, distance):
+        self.LaserOnTime[index] += distance
+
+    def getLaserOnTime(self, index):
+        return self.LaserOnTime[index]
+
+    def resetLaserOnTime(self, index):
+        self.LaserOnTime[index] = 0
+
+    def totalLaserOnTime(self, index, distance):
+        self.totalLaserOnTime[index] += distance
+
+    def updateLastAngle(self, angle):
+        self.lastAngle = angle
+
+    def getLastAngle(self):
+        return self.lastAngle
 
 
     @staticmethod
