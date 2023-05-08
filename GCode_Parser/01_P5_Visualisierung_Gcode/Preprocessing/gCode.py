@@ -1,11 +1,13 @@
 class gCode:
 
     firstLayerCheck = False
+    firstMovementCommandCheck = False  #TRUE only if firstLayerCheck == TRUE
+    historyMovementCommandCheck = False
     lastAngle = 0
     numberOfG1 = 0
     totalLengthOfG1 = 0
-    currentPos = None              # [X, Y, Z]
-    lastF = 1800
+    currentPos = [0, 0, 0, 0]              # [X, Y, Z, A]
+    lastF = 0
 
     def __init__(self, name):
         self.name = name
@@ -14,8 +16,18 @@ class gCode:
     def updateFirstLayerCheck(self, value):
         self.firstLayerCheck = value
 
-    def checkFirstLayer(self, z):
+    def checkFirstLayer(self):
         return self.firstLayerCheck
+
+    def updateFirstMovementCommandCheck(self, value):
+        self.firstMovementCommandCheck = value
+        self.historyMovementCommandCheck = True
+
+    def getFirstMovementCommandCheck(self):
+        return self.firstMovementCommandCheck
+
+    def getHistoryMovementCommandCheck(self):
+        return self.historyMovementCommandCheck
     
     def updateLastAngle(self, angle):
         self.lastAngle = angle
@@ -36,7 +48,7 @@ class gCode:
         return self.numberOfG1
 
     def updateCurrentPos(self, pos):
-        self.currentPos  = pos
+        self.currentPos = pos
     
     def getCurrentPos(self):
         return self.currentPos

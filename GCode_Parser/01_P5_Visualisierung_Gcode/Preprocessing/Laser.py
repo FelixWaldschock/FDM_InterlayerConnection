@@ -8,7 +8,7 @@ class Laser:
     lastActivatedLaser = None
     numberOfLaser = 0
     deltaLaser = 0
-    OnOFF_State = [False, False, False, False]
+    LaserStates = [0, 0, 0, 0]
     LaserOnTime = [0, 0, 0, 0]
     totalLaserOnTime = [0, 0, 0, 0]
     lastAngle = 0
@@ -22,12 +22,11 @@ class Laser:
         self.deltaLaser = 360/n
 
     def updateAngles(self, delta):
-        for i in range(len(self.angles)):
-            if self.angles[i] + delta < 0:
-                self.angles[i] += 360 + delta
-            else:
-                self.angles[i] += delta
-      
+        #for i in range(len(self.angles)):
+        #    if self.angles[i] + delta < 0:
+        #        self.angles[i] += 360 + delta
+        #    else:
+        #        self.angles[i] += delta
         # update absolute laser movement
         self.absLaserMovement += abs(delta)
         self.absLaserPos += delta
@@ -52,11 +51,12 @@ class Laser:
     def updateAbsLaserMovement(self, value):
         self.absLaserMovement = value
 
-    def updateOnOFF_State(self, laser, state):
-        self.OnOFF_State[laser] = state
+    def updateLaserStates(self, laser, state):
+        self.updateLastActivatedLaser(laser)
+        self.LaserStates[laser] = state
     
-    def getOnOFF_State(self, laser):
-        return self.OnOFF_State[laser]
+    def getLaserStates(self, laser):
+        return self.LaserStates[laser]
 
     def getNumberOfLasers(self):
         return self.numberOfLaser
