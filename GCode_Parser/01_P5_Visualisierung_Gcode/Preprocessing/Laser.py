@@ -33,12 +33,6 @@ class Laser:
 
         return True
     
-    def getAngles(self):
-        return self.angles
-
-    def getNormAngles(self):
-        return np.mod(self.angles, 360)
-
     def updateLastActivatedLaser(self, laser):
         self.lastActivatedLaser = laser
     
@@ -76,11 +70,6 @@ class Laser:
     def totalLaserOnTime(self, index, distance):
         self.totalLaserOnTime[index] += distance
 
-    def updateLastAngle(self, angle):
-        self.lastAngle = angle
-
-    def getLastAngle(self):
-        return self.lastAngle
 
 
     @staticmethod
