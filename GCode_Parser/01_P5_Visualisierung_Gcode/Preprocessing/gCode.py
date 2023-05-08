@@ -7,7 +7,12 @@ class gCode:
     numberOfG1 = 0
     totalLengthOfG1 = 0
     currentPos = [0, 0, 0, 0]              # [X, Y, Z, A]
-    lastF = 0
+
+    lastX = 0                           # last X position
+    lastY = 0                           # last Y position
+    lastZ = 0                           # last Z position
+    lastE = 0                           # last extruder feed
+    lastF = 0                           # last speed
 
     def __init__(self, name):
         self.name = name
@@ -48,7 +53,14 @@ class gCode:
         return self.numberOfG1
 
     def updateCurrentPos(self, pos):
-        self.currentPos = pos
+        tmp = []
+        # check if p in pos is not None
+        for p in range(len(pos)):
+            if pos[p] is None:
+                tmp.append(self.currentPos[p])
+            else:
+                tmp.append(pos[p])        
+        self.currentPos = tmp
     
     def getCurrentPos(self):
         return self.currentPos

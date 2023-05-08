@@ -21,6 +21,12 @@ class Laser:
         self.numberOfLaser = n
         self.deltaLaser = 360/n
 
+    def getAngles(self):
+        return self.angles
+        
+    def getNormAngles(self):
+        return np.mod(self.angles, 360)
+
     def updateAngles(self, delta):
         #for i in range(len(self.angles)):
         #    if self.angles[i] + delta < 0:
@@ -75,7 +81,6 @@ class Laser:
     @staticmethod
     def createLaserArray(n):
         div = 360/n
-  
         tmp = []
         for i in range(n):
             tmp.append(div*i)
