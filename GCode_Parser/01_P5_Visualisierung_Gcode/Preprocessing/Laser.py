@@ -3,6 +3,7 @@ import numpy as np
 class Laser:
 
     # variable of absolute laser movement
+    angles = None
     absLaserMovement = 0
     absLaserPos = 0
     lastActivatedLaser = None
@@ -28,11 +29,11 @@ class Laser:
         return np.mod(self.angles, 360)
 
     def updateAngles(self, delta):
-        #for i in range(len(self.angles)):
-        #    if self.angles[i] + delta < 0:
-        #        self.angles[i] += 360 + delta
-        #    else:
-        #        self.angles[i] += delta
+        for i in range(len(self.angles)):
+            if self.angles[i] + delta < 0:
+                self.angles[i] += 360 + delta
+            else:
+                self.angles[i] += delta
         # update absolute laser movement
         self.absLaserMovement += abs(delta)
         self.absLaserPos += delta
