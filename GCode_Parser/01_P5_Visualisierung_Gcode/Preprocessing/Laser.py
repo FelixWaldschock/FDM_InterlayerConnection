@@ -9,10 +9,13 @@ class Laser:
     lastActivatedLaser = None
     numberOfLaser = 0
     deltaLaser = 0
-    LaserStates = [0, 0, 0, 0]
-    LaserOnTime = [0, 0, 0, 0]
-    totalLaserOnTime = [0, 0, 0, 0]
+    #LaserStates = [0, 0, 0, 0]
+    #LaserOnTime = [0, 0, 0, 0]
+    #totalLaserOnTime = [0, 0, 0, 0]
     lastAngle = 0
+    LaserStates = None
+    LaserOnTime = None
+    totalLaserOnTime = None
 
 
 
@@ -21,6 +24,13 @@ class Laser:
         self.angles = Laser.createLaserArray(n)
         self.numberOfLaser = n
         self.deltaLaser = 360/n
+
+        # init empty array with len n for LaserStates, LaserOnTime and totalLaserOnTime
+        self.LaserStates = np.zeros(n)
+        self.LaserOnTime = np.zeros(n)
+        self.totalLaserOnTime = np.zeros(n)
+
+    
 
     def getAngles(self):
         return self.angles
