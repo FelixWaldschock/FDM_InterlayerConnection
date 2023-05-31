@@ -18,8 +18,6 @@ class Laser:
     totalLaserOnTime = None
 
 
-
-
     def __init__(self, n):
         self.angles = Laser.createLaserArray(n)
         self.numberOfLaser = n
@@ -29,8 +27,7 @@ class Laser:
         self.LaserStates = np.zeros(n)
         self.LaserOnTime = np.zeros(n)
         self.totalLaserOnTime = np.zeros(n)
-
-    
+  
 
     def getAngles(self):
         return self.angles
