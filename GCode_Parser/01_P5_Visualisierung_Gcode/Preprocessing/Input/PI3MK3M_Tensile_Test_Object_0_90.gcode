@@ -17,7 +17,8 @@ M104 S200 ; set extruder temp
 M140 S60 ; set bed temp
 M190 S60 ; wait for bed temp
 M109 S200 ; wait for extruder temp
-;G28 W ; home all without mesh bed leveG80 ; mesh bed leveling
+;G28 W ; home all without mesh bed leve
+;G80 ; mesh bed leveling
 G92 E0.0 ; reset extruder distance position
 G1 Y-3.0 F1000.0 ; go outside print area
 G1 X60.0 E9.0 F1000.0 ; intro line
