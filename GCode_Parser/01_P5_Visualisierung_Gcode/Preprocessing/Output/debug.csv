@@ -18,8 +18,8 @@ False;None;None;None;None;None;0;M104;M104 S200 ; set extruder temp
 False;None;None;None;None;None;0;M140;M140 S60 ; set bed temp
 False;None;None;None;None;None;0;M190;M190 S60 ; wait for bed temp
 False;None;None;None;None;None;0;M109;M109 S200 ; wait for extruder temp
-False;None;None;None;None;None;0;G28;G28 W ; home all without mesh bed level
-False;None;None;None;None;None;0;G80;G80 ; mesh bed leveling
+False;None;None;None;None;None;0;;G28;;G28 W ; home all without mesh bed level
+False;None;None;None;None;None;0;;G80;;G80 ; mesh bed leveling
 False;None;None;None;None;None;0;G92;G92 E0.0 ; reset extruder distance position
 True;None;None;None;None;None;0;G1;G1 Y-3.0 F1000.0 ; go outside print area
 True;None;None;None;None;None;0;G1;G1 X60.0 E9.0 F1000.0 ; intro line
