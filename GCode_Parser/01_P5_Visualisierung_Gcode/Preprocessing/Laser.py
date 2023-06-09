@@ -1,10 +1,12 @@
 import numpy as np
 
+
 class Laser:
 
     # variable of absolute laser movement
     angles = None
     absLaserMovement = 0
+    numberOfRotations = 0
     absLaserPos = 0
     lastActivatedLaser = None
     numberOfLaser = 0
@@ -17,9 +19,6 @@ class Laser:
     LaserOnTime = None
     totalLaserOnTime = None
 
-
-
-
     def __init__(self, n):
         self.angles = Laser.createLaserArray(n)
         self.numberOfLaser = n
@@ -30,11 +29,9 @@ class Laser:
         self.LaserOnTime = np.zeros(n)
         self.totalLaserOnTime = np.zeros(n)
 
-    
-
     def getAngles(self):
         return self.angles
-        
+
     def getNormAngles(self):
         return np.mod(self.angles, 360)
 
@@ -48,11 +45,15 @@ class Laser:
         self.absLaserMovement += abs(delta)
         self.absLaserPos += delta
 
+        # update number of rotations, increase by 1 if abs.delta > 0
+        if np.abs(delta) > 0:
+            self.numberOfRotations += 1
+
         return True
-    
+
     def updateLastActivatedLaser(self, laser):
         self.lastActivatedLaser = laser
-    
+
     def getLastActivatedLaser(self):
         return self.lastActivatedLaser
 
@@ -65,7 +66,7 @@ class Laser:
     def updateLaserStates(self, laser, state):
         self.updateLastActivatedLaser(laser)
         self.LaserStates[laser] = state
-    
+
     def getLaserStates(self, laser):
         return self.LaserStates[laser]
 
@@ -87,8 +88,6 @@ class Laser:
     def totalLaserOnTime(self, index, distance):
         self.totalLaserOnTime[index] += distance
 
-
-
     @staticmethod
     def createLaserArray(n):
         div = 360/n
@@ -96,4 +95,3 @@ class Laser:
         for i in range(n):
             tmp.append(div*i)
         return np.array(tmp)
-        
